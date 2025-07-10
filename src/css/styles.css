@@ -41,20 +41,54 @@ header .container {
   align-items: center;
   gap: 10px;
 }
-.logo-icon path {
-  fill: #1D1D1D;
-  transition: fill 0.3s ease;
-}
-.logo-icon:hover path {
-  fill: #000000; /* lub inny kolor na hover */
-}
-.logo-group:hover .logo-icon path {
-  fill: #000000;
+
+.logo-icon {
+  background-color: white;
+  fill: black;
+  border-radius: 5px; /* dopasuj wartość, żeby zaokrąglenie pasowało */
+  cursor: pointer;
+  transition: background-color 0.3s, fill 0.3s;
+  display: inline-block; /* żeby background i border-radius działały ładnie */
 }
 
-/* Nie zmieniamy koloru tekstu */
-.logo-text {
-  color: #ffffff;
+.logo-icon:hover {
+  background-color: black;
+  fill: white;
+}
+
+.logo-wrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.logo-icon {
+  position: absolute;
+  top: 0; left: 0;
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.3s ease;
+}
+
+.logo-icon-1 {
+  opacity: 1;
+  z-index: 2;
+}
+
+.logo-icon-2 {
+  opacity: 0;
+  z-index: 1;
+}
+
+.logo-wrapper:hover .logo-icon-1 {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.logo-wrapper:hover .logo-icon-2 {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* Środkowe linki */
