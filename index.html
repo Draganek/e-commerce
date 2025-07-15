@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Przykład nagłówka</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="src/css/styles.css" />
@@ -12,57 +12,153 @@
 <body>
     <header>
         <div class="container">
-            <div class="left">
-                <div class="logo-group">
-                    <div class="logo-wrapper">
-                        <svg class="logo-icon logo-icon-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M6 1H18C20.7614 1 23 3.23858 23 6V18C23 20.7614 20.7614 23 18 23H6C3.23858 23 1 20.7614 1 18V6C1 3.23858 3.23858 1 6 1ZM0 6C0 2.68629 2.68629 0 6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6ZM17 7.48578V5H7V19H9.69441V13.5872H16.3757V11.1983H9.69441V7.48578H17Z"
-                                fill="#1D1D1D" />
-                        </svg>
-                        <svg class="logo-icon logo-icon-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none">
-                            <g clip-path="url(#clip0_2008_758)">
-                                <path
-                                    d="M0 6C0 2.68629 2.68629 0 6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6Z"
-                                    fill="#1D1D1D" />
+            <div class="left mobile-only">
+                    <div class="logo-group">
+                        <div class="logo-wrapper">
+                            <svg class="logo-icon logo-icon-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M6 1H18C20.7614 1 23 3.23858 23 6V18C23 20.7614 20.7614 23 18 23H6C3.23858 23 1 20.7614 1 18V6C1 3.23858 3.23858 1 6 1ZM0 6C0 2.68629 2.68629 0 6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6ZM17 7.48578V5H7V19H9.69441V13.5872H16.3757V11.1983H9.69441V7.48578H17Z"
                                     fill="#1D1D1D" />
-                                <path d="M17 5V7.48578H9.69441V11.1983H16.3757V13.5872H9.69441V19H7V5H17Z"
-                                    fill="white" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_2008_758">
-                                    <rect width="24" height="24" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
+                            </svg>
+                            <svg class="logo-icon logo-icon-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_2008_758)">
+                                    <path
+                                        d="M0 6C0 2.68629 2.68629 0 6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6Z"
+                                        fill="#1D1D1D" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M6 1H18C20.7614 1 23 3.23858 23 6V18C23 20.7614 20.7614 23 18 23H6C3.23858 23 1 20.7614 1 18V6C1 3.23858 3.23858 1 6 1ZM0 6C0 2.68629 2.68629 0 6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6ZM17 7.48578V5H7V19H9.69441V13.5872H16.3757V11.1983H9.69441V7.48578H17Z"
+                                        fill="#1D1D1D" />
+                                    <path d="M17 5V7.48578H9.69441V11.1983H16.3757V13.5872H9.69441V19H7V5H17Z"
+                                        fill="white" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_2008_758">
+                                        <rect width="24" height="24" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                        <span>FORMA’SINT.</span>
                     </div>
-                    <span>FORMA’SINT.</span>
                 </div>
-                <span class="idomods">IDOMODS &lt;/&gt;</span>
-            </div>
-
-            <div class="center">
-                <a href="#sekcja1">HOME</a>
-                <a href="#sekcja2">FEATURED PRODUCTS</a>
-                <a href="#sekcja3">PRODUCT LISTING</a>
-            </div>
-
-            <div class="logo-group">
+            
+          <div class="mobile-only">
+            <div class=" mobile-logo-group mobile-menu-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M9.52825 10.6634C10.2136 11.3487 11.0375 11.6914 12 11.6914C12.9625 11.6914 13.7864 11.3487 14.4718 10.6634C15.1573 9.97791 15.5 9.15391 15.5 8.19141C15.5 7.22891 15.1573 6.40499 14.4718 5.71966C13.7864 5.03416 12.9625 4.69141 12 4.69141C11.0375 4.69141 10.2136 5.03416 9.52825 5.71966C8.84275 6.40499 8.5 7.22891 8.5 8.19141C8.5 9.15391 8.84275 9.97791 9.52825 10.6634ZM4.5 17.0837V19.3069H6V17.8069V17.0837V17H6.00341C6.01746 16.8293 6.07499 16.6697 6.176 16.5212C6.29333 16.3488 6.45258 16.2082 6.65375 16.0992C7.51542 15.6748 8.39392 15.3533 9.28925 15.1347C10.1848 14.9162 11.0883 14.8069 12 14.8069C12.9117 14.8069 13.8152 14.9162 14.7107 15.1347C15.6061 15.3533 16.4846 15.6748 17.3462 16.0992C17.5474 16.2082 17.7067 16.3488 17.824 16.5212C17.925 16.6697 17.9825 16.8293 17.9966 17H18V17.0837V17.8069V19.3069H19.5V17.0837C19.5 16.594 19.367 16.1405 19.101 15.7232C18.835 15.3058 18.4795 14.985 18.0345 14.7607C17.0462 14.2762 16.0491 13.9127 15.0433 13.6704C14.0374 13.4281 13.023 13.3069 12 13.3069C10.977 13.3069 9.96258 13.4281 8.95675 13.6704C7.95092 13.9127 6.95383 14.2762 5.9655 14.7607C5.5205 14.985 5.165 15.3058 4.899 15.7232C4.633 16.1405 4.5 16.594 4.5 17.0837ZM13.4125 9.60391C13.0208 9.99557 12.55 10.1914 12 10.1914C11.45 10.1914 10.9792 9.99557 10.5875 9.60391C10.1958 9.21224 10 8.74141 10 8.19141C10 7.64141 10.1958 7.17057 10.5875 6.77891C10.9792 6.38724 11.45 6.19141 12 6.19141C12.55 6.19141 13.0208 6.38724 13.4125 6.77891C13.8042 7.17057 14 7.64141 14 8.19141C14 8.74141 13.8042 9.21224 13.4125 9.60391Z"
+                    <path
+                        d="M3.5 17.6345V16.1348H20.5V17.6345H3.5ZM3.5 12.75V11.25H20.5V12.75H3.5ZM3.5 7.86526V6.36551H20.5V7.86526H3.5Z"
                         fill="#1D1D1D" />
                 </svg>
-                <span>FRONTEND DEVELOPER</span>
+                <span>MENU</span>
+            </div>
+
+            <!-- Mobilne menu -->
+            <div class="mobile-menu">
+                <div class="mobile-menu-header">
+                    <div class="mobile-logo-group">
+                        <div class="logo-wrapper">
+                            <svg class="logo-icon logo-icon-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M6 1H18C20.7614 1 23 3.23858 23 6V18C23 20.7614 20.7614 23 18 23H6C3.23858 23 1 20.7614 1 18V6C1 3.23858 3.23858 1 6 1ZM0 6C0 2.68629 2.68629 0 6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6ZM17 7.48578V5H7V19H9.69441V13.5872H16.3757V11.1983H9.69441V7.48578H17Z"
+                                    fill="#1D1D1D" />
+                            </svg>
+                            <svg class="logo-icon logo-icon-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_2008_758)">
+                                    <path
+                                        d="M0 6C0 2.68629 2.68629 0 6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6Z"
+                                        fill="#1D1D1D" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M6 1H18C20.7614 1 23 3.23858 23 6V18C23 20.7614 20.7614 23 18 23H6C3.23858 23 1 20.7614 1 18V6C1 3.23858 3.23858 1 6 1ZM0 6C0 2.68629 2.68629 0 6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6ZM17 7.48578V5H7V19H9.69441V13.5872H16.3757V11.1983H9.69441V7.48578H17Z"
+                                        fill="#1D1D1D" />
+                                    <path d="M17 5V7.48578H9.69441V11.1983H16.3757V13.5872H9.69441V19H7V5H17Z"
+                                        fill="white" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_2008_758">
+                                        <rect width="24" height="24" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mobile-logo-group mobile-menu-close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M6.39994 18.6538L5.34619 17.6L10.9462 12L5.34619 6.4L6.39994 5.34625L11.9999 10.9463L17.5999 5.34625L18.6537 6.4L13.0537 12L18.6537 17.6L17.5999 18.6538L11.9999 13.0538L6.39994 18.6538Z"
+                                fill="#1D1D1D" />
+                        </svg>
+                        <span>CLOSE</span>
+                    </div>
+                </div>
+                <nav class="mobile-nav">
+                    <a href="#sekcja1">HOME</a>
+                    <a href="#sekcja2">FEATURED PRODUCTS</a>
+                    <a href="#sekcja3">PRODUCT LISTING</a>
+                </nav>
+                </div>
+            </div>
+            
+            
+
+            <div class="desktop-only">
+                <div class="left ">
+                    <div class="logo-group">
+                        <div class="logo-wrapper">
+                            <svg class="logo-icon logo-icon-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M6 1H18C20.7614 1 23 3.23858 23 6V18C23 20.7614 20.7614 23 18 23H6C3.23858 23 1 20.7614 1 18V6C1 3.23858 3.23858 1 6 1ZM0 6C0 2.68629 2.68629 0 6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6ZM17 7.48578V5H7V19H9.69441V13.5872H16.3757V11.1983H9.69441V7.48578H17Z"
+                                    fill="#1D1D1D" />
+                            </svg>
+                            <svg class="logo-icon logo-icon-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_2008_758)">
+                                    <path
+                                        d="M0 6C0 2.68629 2.68629 0 6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6Z"
+                                        fill="#1D1D1D" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M6 1H18C20.7614 1 23 3.23858 23 6V18C23 20.7614 20.7614 23 18 23H6C3.23858 23 1 20.7614 1 18V6C1 3.23858 3.23858 1 6 1ZM0 6C0 2.68629 2.68629 0 6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6ZM17 7.48578V5H7V19H9.69441V13.5872H16.3757V11.1983H9.69441V7.48578H17Z"
+                                        fill="#1D1D1D" />
+                                    <path d="M17 5V7.48578H9.69441V11.1983H16.3757V13.5872H9.69441V19H7V5H17Z"
+                                        fill="white" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_2008_758">
+                                        <rect width="24" height="24" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                        <span>FORMA’SINT.</span>
+                    </div>
+                    <span class="idomods">IDOMODS &lt;/&gt;</span>
+                </div>
+
+                <div class="center">
+                    <a href="#sekcja1">HOME</a>
+                    <a href="#sekcja2">FEATURED PRODUCTS</a>
+                    <a href="#sekcja3">PRODUCT LISTING</a>
+                </div>
+
+                <div class="logo-group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M9.52825 10.6634C10.2136 11.3487 11.0375 11.6914 12 11.6914C12.9625 11.6914 13.7864 11.3487 14.4718 10.6634C15.1573 9.97791 15.5 9.15391 15.5 8.19141C15.5 7.22891 15.1573 6.40499 14.4718 5.71966C13.7864 5.03416 12.9625 4.69141 12 4.69141C11.0375 4.69141 10.2136 5.03416 9.52825 5.71966C8.84275 6.40499 8.5 7.22891 8.5 8.19141C8.5 9.15391 8.84275 9.97791 9.52825 10.6634ZM4.5 17.0837V19.3069H6V17.8069V17.0837V17H6.00341C6.01746 16.8293 6.07499 16.6697 6.176 16.5212C6.29333 16.3488 6.45258 16.2082 6.65375 16.0992C7.51542 15.6748 8.39392 15.3533 9.28925 15.1347C10.1848 14.9162 11.0883 14.8069 12 14.8069C12.9117 14.8069 13.8152 14.9162 14.7107 15.1347C15.6061 15.3533 16.4846 15.6748 17.3462 16.0992C17.5474 16.2082 17.7067 16.3488 17.824 16.5212C17.925 16.6697 17.9825 16.8293 17.9966 17H18V17.0837V17.8069V19.3069H19.5V17.0837C19.5 16.594 19.367 16.1405 19.101 15.7232C18.835 15.3058 18.4795 14.985 18.0345 14.7607C17.0462 14.2762 16.0491 13.9127 15.0433 13.6704C14.0374 13.4281 13.023 13.3069 12 13.3069C10.977 13.3069 9.96258 13.4281 8.95675 13.6704C7.95092 13.9127 6.95383 14.2762 5.9655 14.7607C5.5205 14.985 5.165 15.3058 4.899 15.7232C4.633 16.1405 4.5 16.594 4.5 17.0837ZM13.4125 9.60391C13.0208 9.99557 12.55 10.1914 12 10.1914C11.45 10.1914 10.9792 9.99557 10.5875 9.60391C10.1958 9.21224 10 8.74141 10 8.19141C10 7.64141 10.1958 7.17057 10.5875 6.77891C10.9792 6.38724 11.45 6.19141 12 6.19141C12.55 6.19141 13.0208 6.38724 13.4125 6.77891C13.8042 7.17057 14 7.64141 14 8.19141C14 8.74141 13.8042 9.21224 13.4125 9.60391Z"
+                            fill="#1D1D1D" />
+                    </svg>
+                    <span>FRONTEND DEVELOPER</span>
+                </div>
             </div>
         </div>
     </header>
 
+
     <main>
+        <!--
         <section id="sekcja1">
             <svg id="main-logo" xmlns="http://www.w3.org/2000/svg" width="1836" height="138" viewBox="0 0 1836 138"
                 fill="none">
@@ -84,9 +180,24 @@
         <section id="sekcja3">
             <h2>Kontakt</h2>
             <p>Tu będzie treść sekcji "Kontakt".</p>
-        </section>
+        </section> 
+        -->
     </main>
 
 </body>
+
+<script>
+    const toggleBtn = document.querySelector('.mobile-logo-group');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeBtn = document.querySelector('.mobile-menu-close');
+
+    toggleBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+    });
+</script>
 
 </html>

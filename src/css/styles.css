@@ -5,6 +5,12 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   color: #1D1D1D;
@@ -29,6 +35,25 @@ header .container {
   align-items: center;
 }
 
+@media (max-width: 767px) {
+  header .container {
+    padding: 20px 16px;
+  }
+}
+
+.desktop-only {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
 /* Lewa sekcja */
 .left {
   display: flex;
@@ -45,10 +70,10 @@ header .container {
 .logo-icon {
   background-color: white;
   fill: black;
-  border-radius: 5px; /* dopasuj wartość, żeby zaokrąglenie pasowało */
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, fill 0.3s;
-  display: inline-block; /* żeby background i border-radius działały ładnie */
+  display: inline-block;
 }
 
 .logo-icon:hover {
@@ -65,7 +90,8 @@ header .container {
 
 .logo-icon {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 24px;
   height: 24px;
   transition: opacity 0.3s ease;
@@ -127,8 +153,9 @@ section {
   background-color: #ffffff;
   margin-bottom: 20px;
 }
+
 #main-logo {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 /* Sekcja hero */
@@ -158,5 +185,93 @@ section {
 
   .hero {
     height: 60vh;
+  }
+}
+
+/* Mobilna ikona menu */
+.mobile-menu-toggle {
+  display: block;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+
+
+/* Mobilne menu (wysuwa się z prawej) */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 300px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+/* Górna część menu */
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.mobile-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Linki w menu */
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobile-nav a {
+  text-decoration: none;
+  color: #1D1D1D;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.mobile-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Ukryj elementy na mobilu / pokaż menu */
+@media (max-width: 768px) {
+
+  .center,
+  .idomods,
+  .right {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  header .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
   }
 }
