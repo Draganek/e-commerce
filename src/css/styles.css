@@ -5,10 +5,12 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   max-width: 100%;
   overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  color: #1D1D1D;
+  background-color: #fff;
 }
 
 body {
@@ -29,10 +31,11 @@ header {
 
 header .container {
   margin: 0 auto;
-  padding: 20px 32px;
+  padding: 20px clamp(16px, 5vw, 32px);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 767px) {
@@ -41,7 +44,7 @@ header .container {
   }
 }
 
-.desktop-only {
+.desktop-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,7 +53,7 @@ header .container {
 
 @media (max-width: 768px) {
   .desktop-only {
-    display: none !important;
+    display: none;
   }
 }
 
@@ -154,14 +157,25 @@ section {
   margin-bottom: 20px;
 }
 
-#main-logo {
-  margin-bottom: 2rem;
+#sekcja1 {
+  height: 100vh;
 }
 
-/* Sekcja hero */
-.hero-section {
-  padding: 0;
-  background-color: transparent;
+@media (max-width: 768px) {
+  section {
+    padding: 20px 16px;
+  }
+}
+
+.main-logo-mobile {
+  margin-bottom: 1rem;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.main-logo-desktop {
+  margin-bottom: 2rem;
 }
 
 .hero {
@@ -169,6 +183,8 @@ section {
   height: 100vh;
   object-fit: cover;
   display: block;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 /* Responsive tweaks */
@@ -257,10 +273,6 @@ section {
   .idomods,
   .right {
     display: none;
-  }
-
-  .mobile-menu-toggle {
-    display: block;
   }
 
   header .container {
