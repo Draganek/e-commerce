@@ -14,26 +14,38 @@ body {
   background-color: #fff;
   scroll-behavior: smooth;
 }
-h1 {
-  font-size: 42px;
-  padding-bottom: 1.5rem;
-}
 
 .text-body {
-  font-size: 16px;        /* większy niż domyślny 16px */
-  line-height: 1.4;       /* lepsza czytelność */
-  font-weight: 500;       /* normalna grubość */
+  font-size: 16px;
+  /* większy niż domyślny 16px */
+  line-height: 1.4;
+  /* lepsza czytelność */
+  font-weight: 500;
+  /* normalna grubość */
 }
-.text-body-large {
-  font-size: 20px;        /* większy niż domyślny 16px */
-  line-height: 1.2;       /* lepsza czytelność */
-  font-weight: 600;       /* normalna grubość */
+
+@media (min-width: 768px) {
+  h1 {
+  font-size: 42px;
+  padding-bottom: 1.5rem;
+  }
+  .text-body-large {
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 600;
+  }
 }
 
 @media (max-width: 768px) {
   h1 {
   font-size: 32px;
-}
+  padding-bottom: 1rem;
+  }
+  .text-body-large {
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 600;
+  }
 }
 
 /* Nagłówek */
@@ -193,10 +205,6 @@ section {
   padding-top: 12vh;
 }
 
-#sekcja2 {
-
-}
-
 .hero {
   width: 100%;
   height: 80vh;
@@ -324,22 +332,49 @@ section {
   }
 }
 
-  .swiper-slide img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
 
-  .swiper-image {
-    background: #EAEAE8;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    text-align: center;
-    padding: 10px;
-  }
 
-  .swiper-pagination {
+.swiper-slide img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.swiper-image {
+  position: relative;
+  background: #EAEAE8;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  text-align: center;
+  padding: 2rem;
+}
+
+.corner-icon {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  z-index: 10;
+}
+
+.top-right {
+  top: 15px;
+  right: 15px;
+}
+
+.swiper-info {
+  padding: 12px;
+}
+
+.slide-name {
+  padding-bottom: 0.5rem;
+}
+
+.slide-price {
+  padding-bottom: 5rem;
+}
+
+.swiper-pagination {
   height: 1px !important;
   background-color: #EAEAE8;
   margin-top: 10px;
@@ -355,11 +390,10 @@ section {
 .swiper-next {
   position: absolute;
   top: 50%;
+  right: 20px;
   transform: translateY(-50%);
   z-index: 10;
   cursor: pointer;
-
-  /* ważne: nie ograniczamy rozmiaru */
   width: auto;
   height: auto;
   padding: 10px;
@@ -368,12 +402,76 @@ section {
   justify-content: center;
 }
 
-.swiper-next {
-  right: 10px;
+@media (max-width: 768px) {
+  .swiper-next {
+    right: 0;
+  }}
+
+
+
+.swiper-next svg {
+  width: 4.5rem;
+  /* TUTAJ kontrolujesz wielkość strzałki */
+  height: 4.5rem;
 }
 
+.label {
+  display: inline-block;
+  padding: 4px 12px;
+  /* padding: top/bottom 4px, left/right 12px */
+  border-radius: 1000px;
+  /* bardzo zaokrąglone */
+  color: #1D1D1D;
+  /* kolor tekstu */
+  font-size: 16px;
+  /* dostosuj */
+  line-height: 140%;
+  /* by ładnie pionowo wycentrować tekst */
+  text-align: center;
+  /* wyśrodkowanie tekstu */
+  position: absolute;
+  /* jeśli chcesz ustawić top i left */
+  top: 15px;
+  /* 20px od góry rodzica */
+  left: 15px;
+  /* 20px od lewej rodzica */
+  white-space: nowrap;
+  /* żeby tekst się nie łamał */
+  cursor: default;
+  font-weight: 500;
+  /* nieklikalny */
+  text-transform: uppercase;
+}
 
-.swiper-next svg{
-  width: 60px; /* TUTAJ kontrolujesz wielkość strzałki */
-  height: 60px;
+.label--bestseller {
+  background-color: #D9D6B0;
+}
+
+.label--limited {
+  background-color: #D4B0D9;
+}
+
+.heart-icon-wrapper {
+  cursor: pointer;
+}
+
+.heart-icon-wrapper svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.heart-icon-hover {
+  opacity: 0;
+}
+
+.heart-icon-wrapper:hover .heart-icon-default {
+  opacity: 0;
+}
+
+.heart-icon-wrapper:hover .heart-icon-hover {
+  opacity: 1;
 }
