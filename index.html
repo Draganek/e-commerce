@@ -313,7 +313,7 @@
 
 
 
-            <div class="swiper-next">
+            <div class="swiper-next no-tap">
                 <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
                     <g clip-path="url(#clip0_2008_836)">
                         <path
@@ -337,80 +337,28 @@
         </div>
 
     </section>
-
     <section id="sekcja3">
+        <div class="dropdown-group">
+            <label class="text-body drop-info item" for="items-per-page">Number of products per page</label>
+            <div class="dropdown item" id="dropdown">
+                <div class="dropdown-container" onclick="toggleDropdown()">
+                    <div class="dropdown-toggle" id="selectedValue">14 </div>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <!-- Generowane dynamicznie -->
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div id="product-container"></div>
+        <div id="loading" class="loading" style="display:none;">Ładowanie...</div>
 
     </section>
 
 
 </body>
 
-<script>
-    const overlay = document.getElementById('overlay');
-    const toggleBtn = document.querySelector('.mobile-logo-group');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const closeBtn = document.querySelector('.mobile-menu-close');
-    const mobile_nav = document.querySelectorAll('.nav-button');
-
-    toggleBtn.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
-        overlay.style.display = "block"
-    });
-
-    closeBtn.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        overlay.style.display = "none"
-    });
-    overlay.addEventListener('click', () => {
-        overlay.style.display = "none"
-        mobileMenu.classList.remove('active');
-    })
-    mobile_nav.forEach(button => {
-        button.addEventListener('click', function (e) {
-            e.preventDefault();
-            overlay.style.display = "none";
-            mobileMenu.classList.remove('active');
-            const targetId = this.getAttribute('href');
-            const target = document.querySelector(targetId);
-
-            if (target) target.scrollIntoView();
-        });
-    });
-</script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        slidesPerView: 4,
-        spaceBetween: 15,
-        loopedSlides: 4,
-
-        pagination: {
-            el: '.swiper-pagination',
-            type: 'progressbar'
-        },
-
-        navigation: {
-            nextEl: '.swiper-next',
-        },
-
-
-        breakpoints: {
-            0: {
-                slidesPerView: 1.1,
-                spaceBetween: 15
-            },
-            640: {
-                slidesPerView: 2
-            },
-            1024: {
-                slidesPerView: 4,
-                spaceBetween: 20
-            }
-        },
-
-    });
-</script>
+<script src="./src/js/script.js"></script>
 
 </html>
