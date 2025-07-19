@@ -67,11 +67,16 @@ const productContainer = document.getElementById('product-container');
 const loadingIndicator = document.getElementById('loading');
 
 const allOptions = [14, 24, 36];
-let selected = 14;   // początkowo 14
+let selected = 14;
+
 let pageNumber = 1;
 let pageSize = selected;
 let loading = false;
 
+let totalRenderedProducts = 0;
+let hasInsertedBanner = false;
+
+// DROPDOWN
 function toggleDropdown() {
     dropdown.classList.toggle('open');
     if (dropdown.classList.contains('open')) {
@@ -79,10 +84,17 @@ function toggleDropdown() {
     }
 }
 
+function getBannerInsertIndex() {
+    if (window.innerWidth >= 768) {
+        return 5;  // desktop — po 5 kafelkach
+    } else {
+        return 2;  // mobile — po 2 kafelkach
+    }
+}
+
 function renderOptions() {
     dropdownMenu.innerHTML = '';
     const optionsToShow = allOptions.filter(opt => opt !== selected);
-
     optionsToShow.forEach((value, index) => {
         const div = document.createElement('div');
         div.className = 'dropdown-item';
@@ -91,18 +103,27 @@ function renderOptions() {
         div.onclick = function (event) {
             event.stopPropagation();
             selected = value;
-            selectedValueEl.textContent = value + ' ';
+            selectedValueEl.textContent = value;
             dropdown.classList.remove('open');
 
-            // przy zmianie rozmiaru strony reset i pobierz nowe produkty
+            // Reset
             pageSize = selected;
             pageNumber = 1;
+            totalRenderedProducts = 0;
+            hasInsertedBanner = false;
             loadInitialProducts();
         };
         dropdownMenu.appendChild(div);
     });
 }
 
+document.addEventListener('click', function (event) {
+    if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('open');
+    }
+});
+
+// POBIERANIE
 async function fetchProducts(page, size) {
     loading = true;
     loadingIndicator.style.display = 'block';
@@ -111,7 +132,7 @@ async function fetchProducts(page, size) {
         const data = await response.json();
         return data.data || [];
     } catch (e) {
-        console.error('Błąd podczas pobierania produktów:', e);
+        console.error('Błąd:', e);
         return [];
     } finally {
         loading = false;
@@ -122,16 +143,44 @@ async function fetchProducts(page, size) {
 function renderProducts(products, append = true) {
     if (!append) {
         productContainer.innerHTML = '';
+        totalRenderedProducts = 0;
+        hasInsertedBanner = false;
     }
-    products.forEach(prod => {
+
+    const bannerInsertIndex = getBannerInsertIndex();
+
+    products.forEach((prod) => {
+        if (!hasInsertedBanner && totalRenderedProducts === bannerInsertIndex) {
+            const banner = document.createElement('div');
+            banner.className = 'banner';
+
+            banner.innerHTML = `
+  <div class="banner-text">Forma’sint.</div>
+  <button class="banner-button">CHECK THIS OUT</button>
+`;
+
+            banner.style.backgroundImage = "url('/src/img/banner.jpg')";
+            banner.style.backgroundSize = "cover";
+            banner.style.backgroundPosition = "center";
+
+            banner.onerror = function () {
+                // jeśli chcesz obsłużyć błąd w tle, trzeba inaczej, bo to div, nie img
+            };
+
+            productContainer.appendChild(banner);
+            hasInsertedBanner = true;
+        }
+
         const tile = document.createElement('div');
         tile.className = 'product-tile';
         tile.innerHTML = `
-        <p class="text-body special">ID: ${prod.id.toString().padStart(2, '0')}</p>
-        <img src="${prod.image}" alt="${prod.text}" />
-      `;
+    <h4>${prod.text}</h4>
+    <img src="${prod.image}" alt="${prod.text}" />
+  `;
         productContainer.appendChild(tile);
+        totalRenderedProducts++;
     });
+
 }
 
 async function loadInitialProducts() {
@@ -154,12 +203,19 @@ window.addEventListener('scroll', async () => {
         }
     }
 });
+let isDesktop = window.innerWidth >= 768;
 
-document.addEventListener('click', function (event) {
-    if (!dropdown.contains(event.target)) {
-        dropdown.classList.remove('open');
+window.addEventListener('resize', () => {
+    const currentlyDesktop = window.innerWidth >= 768;
+    if (currentlyDesktop !== isDesktop) {
+        isDesktop = currentlyDesktop;
+
+        pageNumber = 1;
+        totalRenderedProducts = 0;
+        hasInsertedBanner = false;
+
+        productContainer.innerHTML = '';
+
+        loadInitialProducts();
     }
 });
-
-// Start ładujemy pierwszą stronę
-loadInitialProducts();
