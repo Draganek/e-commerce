@@ -127,7 +127,7 @@ function renderProducts(products, append = true) {
         const tile = document.createElement('div');
         tile.className = 'product-tile';
         tile.innerHTML = `
-        <p class="text-body special">ID: ${prod.id}</h4>
+        <p class="text-body special">ID: ${prod.id.toString().padStart(2, '0')}</p>
         <img src="${prod.image}" alt="${prod.text}" />
       `;
         productContainer.appendChild(tile);

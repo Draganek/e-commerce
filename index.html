@@ -174,8 +174,8 @@
                     fill="#1D1D1D" />
             </svg>
 
-            <img class="hero" src="/src/img/hero_photo.jpg" alt="Opis zdjęcia" />
-
+            <img class="hero" src="/src/img/hero_photo.jpg" onerror="this.onerror=null; this.src='https://draganek.github.io/e-commerce/src/img/hero_photo.jpg';"
+                alt="Obrazek">
         </section>
     </div>
 
@@ -203,7 +203,7 @@
                                     fill="#1D1D1D" />
                             </svg>
                         </div>
-                        <img src="/src/img/B1.png" alt="Produkt 1">
+                        <img src="/src/img/B1.png" onerror="this.onerror=null; this.src='https://draganek.github.io/e-commerce/src/img/B1.png';" alt="Produkt 1">
                     </div>
                     <div class="swiper-info">
                         <p class="text-body-large slide-name">Dark blue alpine climbing jacket</p>
@@ -228,7 +228,7 @@
                                     fill="#1D1D1D" />
                             </svg>
                         </div>
-                        <img src="/src/img/B2.png" alt="Produkt 2">
+                        <img src="/src/img/B2.png" onerror="this.onerror=null; this.src='https://draganek.github.io/e-commerce/src/img/B2.png';" alt="Produkt 2">
                     </div>
                     <div class="swiper-info">
                         <p class="text-body-large slide-name">Orange helmet for alpine TOUNDRA</p>
@@ -252,7 +252,7 @@
                                     fill="#1D1D1D" />
                             </svg>
                         </div>
-                        <img src="/src/img/B3.png" alt="Produkt 3">
+                        <img src="/src/img/B3.png" onerror="this.onerror=null; this.src='https://draganek.github.io/e-commerce/src/img/B3.png';" alt="Produkt 3">
                     </div>
                     <div class="swiper-info">
                         <p class="text-body-large slide-name">Grey alpine climbing jacket</p>
@@ -277,7 +277,7 @@
                                     fill="#1D1D1D" />
                             </svg>
                         </div>
-                        <img src="/src/img/B1.png" alt="Produkt 1">
+                        <img src="/src/img/B1.png" onerror="this.onerror=null; this.src='https://draganek.github.io/e-commerce/src/img/B1.png';" alt="Produkt 1">
                     </div>
                     <div class="swiper-info">
                         <p class="text-body-large slide-name">Dark blue alpine climbing jacket</p>
@@ -301,7 +301,7 @@
                                     fill="#1D1D1D" />
                             </svg>
                         </div>
-                        <img src="/src/img/B3.png" alt="Produkt 3">
+                        <img src="/src/img/B3.png" onerror="this.onerror=null; this.src='https://draganek.github.io/e-commerce/src/img/B3.png';" alt="Produkt 3">
                     </div>
                     <div class="swiper-info">
                         <p class="text-body-large slide-name">Grey alpine climbing jacket</p>
@@ -340,11 +340,13 @@
     <section id="sekcja3">
         <div class="dropdown-group">
             <label class="text-body drop-info item" for="items-per-page">Number of products per page</label>
-            <div class="dropdown item" id="dropdown">
-                <div class="dropdown-container" onclick="toggleDropdown()">
-                    <div class="dropdown-toggle" id="selectedValue">14 </div>
-                    <div class="dropdown-menu" id="dropdownMenu">
-                        <!-- Generowane dynamicznie -->
+            <div class="drop-selector">
+                <div class="dropdown item" id="dropdown">
+                    <div class="dropdown-container" onclick="toggleDropdown()">
+                        <div class="dropdown-toggle" id="selectedValue">14 </div>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <!-- Generowane dynamicznie -->
+                        </div>
                     </div>
                 </div>
             </div>
