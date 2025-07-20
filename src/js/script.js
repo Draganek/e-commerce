@@ -3,10 +3,16 @@ const toggleBtn = document.querySelector('.mobile-logo-group');
 const mobileMenu = document.querySelector('.mobile-menu');
 const closeBtn = document.querySelector('.mobile-menu-close');
 const mobile_nav = document.querySelectorAll('.nav-button');
+const menu_logo = document.getElementById('menu-logo')
 
 toggleBtn.addEventListener('click', () => {
     mobileMenu.classList.add('active');
     overlay.style.display = "block"
+});
+
+menu_logo.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+    overlay.style.display = "none"
 });
 
 closeBtn.addEventListener('click', () => {
@@ -60,6 +66,30 @@ const swiper = new Swiper('.swiper', {
     },
 });
 
+
+const modal = document.getElementById('modal');
+const modalCloseBtn = document.getElementById('modal-close');
+const modalId = document.querySelector('.modal-id');
+const modalImage = document.getElementById('modal-image');
+
+function openModal(product) {
+  modalId.textContent = `ID: ${product.id.toString().padStart(2, '0')}`;
+  modalImage.src = product.image;
+  modalImage.alt = product.text;
+  modal.classList.remove('hidden');
+}
+
+modalCloseBtn.addEventListener('click', () => {
+  modal.classList.add('hidden');
+});
+
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.classList.add('hidden');
+  }
+});
+
+
 const dropdown = document.getElementById('dropdown');
 const selectedValueEl = document.getElementById('selectedValue');
 const dropdownMenu = document.getElementById('dropdownMenu');
@@ -69,7 +99,7 @@ const loadingIndicator = document.getElementById('loading');
 const allOptions = [14, 24, 36];
 let selected = 14;
 
-let pageNumber = 1;
+let pageNumber = 0;
 let pageSize = selected;
 let loading = false;
 
@@ -86,9 +116,9 @@ function toggleDropdown() {
 
 function getBannerInsertIndex() {
     if (window.innerWidth >= 768) {
-        return 5;  // desktop — po 5 kafelkach
+        return 5;
     } else {
-        return 2;  // mobile — po 2 kafelkach
+        return 2;
     }
 }
 
@@ -123,7 +153,6 @@ document.addEventListener('click', function (event) {
     }
 });
 
-// POBIERANIE
 async function fetchProducts(page, size) {
     loading = true;
     loadingIndicator.style.display = 'block';
@@ -155,8 +184,11 @@ function renderProducts(products, append = true) {
             banner.className = 'banner';
 
             banner.innerHTML = `
-  <div class="banner-text">Forma’sint.</div>
-  <button class="banner-button">CHECK THIS OUT</button>
+  <div class="banner-text text-body">Forma’sint. <div class="banner-info">You'll look and feel like the champion.</div></div>
+  
+  <button class="banner-button"><span>Check this out</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<path d="M12.9462 12.0022L8.34619 7.40219L9.39994 6.34843L15.0537 12.0022L9.39994 17.6559L8.34619 16.6022L12.9462 12.0022Z" fill="#1D1D1D"/>
+</svg></button>
 `;
 
             banner.style.backgroundImage = "url('/src/img/banner.jpg')";
@@ -164,7 +196,7 @@ function renderProducts(products, append = true) {
             banner.style.backgroundPosition = "center";
 
             banner.onerror = function () {
-                // jeśli chcesz obsłużyć błąd w tle, trzeba inaczej, bo to div, nie img
+                banner.style.backgroundImage = "url('https://draganek.github.io/e-commerce/src/img/banner.jpg')";
             };
 
             productContainer.appendChild(banner);
@@ -174,9 +206,12 @@ function renderProducts(products, append = true) {
         const tile = document.createElement('div');
         tile.className = 'product-tile';
         tile.innerHTML = `
-    <h4>${prod.text}</h4>
+    <p class="text-body special">ID: ${prod.id.toString().padStart(2, '0')}</p>
+    <div class="product-holder">
     <img src="${prod.image}" alt="${prod.text}" />
+    </div>
   `;
+        tile.addEventListener('click', () => openModal(prod));
         productContainer.appendChild(tile);
         totalRenderedProducts++;
     });
@@ -219,3 +254,4 @@ window.addEventListener('resize', () => {
         loadInitialProducts();
     }
 });
+
