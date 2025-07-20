@@ -73,20 +73,20 @@ const modalId = document.querySelector('.modal-id');
 const modalImage = document.getElementById('modal-image');
 
 function openModal(product) {
-  modalId.textContent = `ID: ${product.id.toString().padStart(2, '0')}`;
-  modalImage.src = product.image;
-  modalImage.alt = product.text;
-  modal.classList.remove('hidden');
+    modalId.textContent = `ID: ${product.id.toString().padStart(2, '0')}`;
+    modalImage.src = product.image;
+    modalImage.alt = product.text;
+    modal.classList.remove('hidden');
 }
 
 modalCloseBtn.addEventListener('click', () => {
-  modal.classList.add('hidden');
+    modal.classList.add('hidden');
 });
 
 modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.classList.add('hidden');
-  }
+    if (e.target === modal) {
+        modal.classList.add('hidden');
+    }
 });
 
 
@@ -136,7 +136,6 @@ function renderOptions() {
             selectedValueEl.textContent = value;
             dropdown.classList.remove('open');
 
-            // Reset
             pageSize = selected;
             pageNumber = 1;
             totalRenderedProducts = 0;
@@ -191,13 +190,19 @@ function renderProducts(products, append = true) {
 </svg></button>
 `;
 
-            banner.style.backgroundImage = "url('/src/img/banner.jpg')";
-            banner.style.backgroundSize = "cover";
-            banner.style.backgroundPosition = "center";
+            const testImg = new Image();
+            testImg.src = '/src/img/banner.jpg';
 
-            banner.onerror = function () {
+            testImg.onload = function () {
+                banner.style.backgroundImage = "url('/src/img/banner.jpg')";
+            };
+
+            testImg.onerror = function () {
                 banner.style.backgroundImage = "url('https://draganek.github.io/e-commerce/src/img/banner.jpg')";
             };
+
+            banner.style.backgroundSize = "cover";
+            banner.style.backgroundPosition = "center";
 
             productContainer.appendChild(banner);
             hasInsertedBanner = true;

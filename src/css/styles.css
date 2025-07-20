@@ -217,7 +217,7 @@ section {
   background-color: #ffffff;
 }
 
-#sekcja1 {
+#section1 {
   height: 100%;
   padding-top: 12vh;
 }
@@ -300,7 +300,7 @@ section {
 .mobile-logo-group {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .mobile-nav {
@@ -625,7 +625,6 @@ select {
   padding: 10px;
   text-align: center;
   box-sizing: border-box;
-  background-color: #000;
 }
 
 @media (min-width: 768px) {
