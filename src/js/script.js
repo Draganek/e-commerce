@@ -7,17 +7,17 @@ const menu_logo = document.getElementById('menu-logo')
 
 
 function disableScroll() {
-  document.body.style.overflow = 'hidden';
-  document.body.addEventListener('touchmove', preventDefault, { passive: false });
+    document.body.style.overflow = 'hidden';
+    document.body.addEventListener('touchmove', preventDefault, { passive: false });
 }
 
 function preventDefault(e) {
-  e.preventDefault();
+    e.preventDefault();
 }
 
 function enableScroll() {
-  document.body.style.overflow = '';
-  document.body.removeEventListener('touchmove', preventDefault);
+    document.body.style.overflow = '';
+    document.body.removeEventListener('touchmove', preventDefault);
 }
 
 toggleBtn.addEventListener('click', () => {
@@ -55,15 +55,17 @@ mobile_nav.forEach(button => {
 });
 
 
-const swiper = new Swiper('.swiper', {
-    loop: true,
-    slidesPerView: 4,
-    spaceBetween: 15,
+const totalSlides = document.querySelectorAll('.swiper-slide').length;
+const scrollFill = document.getElementById('scrollFill');
 
-    pagination: {
-        el: '.swiper-pagination',
-        type: 'progressbar'
-    },
+const fillWidthPercent = 100 / totalSlides;
+scrollFill.style.width = fillWidthPercent + '%';
+
+const swiper = new Swiper('.swiper', {
+    slidesPerView: 4,
+    spaceBetween: 10,
+    loop: true,
+    allowTouchMove: false,
 
     navigation: {
         nextEl: '.swiper-next',
@@ -75,16 +77,27 @@ const swiper = new Swiper('.swiper', {
             slidesPerView: 1.1,
             spaceBetween: 15
         },
-        640: {
-            slidesPerView: 2
-        },
-        1024: {
+        1025: {
             slidesPerView: 4,
             spaceBetween: 20
         }
     },
+
+    on: {
+        init: function () {
+            updateScrollPosition(this.realIndex);
+        },
+        slideChange: function () {
+            updateScrollPosition(this.realIndex);
+        }
+    }
 });
 
+
+function updateScrollPosition(index) {
+    const leftPercent = index * fillWidthPercent;
+    scrollFill.style.left = leftPercent + '%';
+}
 
 const modal = document.getElementById('modal');
 const modalCloseBtn = document.getElementById('modal-close');
@@ -137,12 +150,14 @@ function toggleDropdown() {
 }
 
 function getBannerInsertIndex() {
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth > 1024) {
         return 5;
     } else {
         return 2;
     }
 }
+
+
 
 function renderOptions() {
     dropdownMenu.innerHTML = '';
@@ -207,7 +222,7 @@ function renderProducts(products, append = true) {
             banner.innerHTML = `
   <div class="banner-text text-body">Forma’sint. <div class="banner-info">You'll look and feel like the champion.</div></div>
   
-  <button class="banner-button"><span>Check this out</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <button class="banner-button"><span class="text-body">Check this out</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 <path d="M12.9462 12.0022L8.34619 7.40219L9.39994 6.34843L15.0537 12.0022L9.39994 17.6559L8.34619 16.6022L12.9462 12.0022Z" fill="#1D1D1D"/>
 </svg></button>
 `;
@@ -233,7 +248,7 @@ function renderProducts(products, append = true) {
         const tile = document.createElement('div');
         tile.className = 'product-tile';
         tile.innerHTML = `
-    <p class="text-body special">ID: ${prod.id.toString().padStart(2, '0')}</p>
+    <p class="special product-id">ID: ${prod.id.toString().padStart(2, '0')}</p>
     <div class="product-holder">
     <img src="${prod.image}" alt="${prod.text}" />
     </div>
@@ -265,12 +280,13 @@ window.addEventListener('scroll', async () => {
         }
     }
 });
-let isDesktop = window.innerWidth >= 768;
+let isDesktop = window.innerWidth > 1024;
 
 window.addEventListener('resize', () => {
-    const currentlyDesktop = window.innerWidth >= 768;
+    const currentlyDesktop = window.innerWidth > 1024;
     if (currentlyDesktop !== isDesktop) {
         isDesktop = currentlyDesktop;
+        swiper.update();
 
         pageNumber = 1;
         totalRenderedProducts = 0;

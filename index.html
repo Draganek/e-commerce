@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="climbing gear, climbing equipment, ropes, harnesses, helmets, carabiners, climbing accessories, Forma’sint, climbing shop, climbing safety">
-    <meta name="description" content="Forma’sint offers high-quality climbing gear: ropes, harnesses, helmets, carabiners, and accessories to keep you safe and comfortable on every climb.">
+    <meta name="keywords"
+        content="climbing gear, climbing equipment, ropes, harnesses, helmets, carabiners, climbing accessories, Forma’sint, climbing shop, climbing safety">
+    <meta name="description"
+        content="Forma’sint offers high-quality climbing gear: ropes, harnesses, helmets, carabiners, and accessories to keep you safe and comfortable on every climb.">
 
     <title>Forma’sint – Professional Equipment & Accessories</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -14,7 +16,7 @@
 </head>
 
 <body>
-    <div id="section1">
+    <div id="home">
         <header>
             <div id="overlay"></div>
             <div class="container">
@@ -63,7 +65,7 @@
                     <!-- Mobilne menu -->
                     <div class="mobile-menu">
                         <div class="mobile-menu-header">
-                             <a id="menu-logo" href="#" class="mobile-logo-group custom-href">
+                            <a id="menu-logo" href="#" class="mobile-logo-group custom-href">
                                 <div class="logo-wrapper">
                                     <svg class="logo-icon logo-icon-1" xmlns="http://www.w3.org/2000/svg" width="24"
                                         height="24" viewBox="0 0 24 24" fill="none">
@@ -102,9 +104,9 @@
                             </div>
                         </div>
                         <nav class="mobile-nav">
-                            <a class="nav-button" href="#section1">HOME</a>
-                            <a class="nav-button" href="#section2">FEATURED PRODUCTS</a>
-                            <a class="nav-button" href="#section3">PRODUCT LISTING</a>
+                            <a class="nav-button" href="#home">HOME</a>
+                            <a class="nav-button" href="#products">FEATURED PRODUCTS</a>
+                            <a class="nav-button" href="#listing">PRODUCT LISTING</a>
                         </nav>
                     </div>
                 </div>
@@ -146,9 +148,9 @@
                     </a>
 
                     <div class="center">
-                        <a href="#section1">HOME</a>
-                        <a href="#section2">FEATURED PRODUCTS</a>
-                        <a href="#section3">PRODUCT LISTING</a>
+                        <a href="#home">HOME</a>
+                        <a href="#products">FEATURED PRODUCTS</a>
+                        <a href="#listing">PRODUCT LISTING</a>
                     </div>
 
                     <div class="logo-group">
@@ -162,6 +164,7 @@
                 </div>
             </div>
         </header>
+        <main>
         <section>
 
             <svg class="main-logo-desktop desktop-only" xmlns="http://www.w3.org/2000/svg" width="918" height="138"
@@ -184,7 +187,7 @@
     </div>
 
 
-    <section id="section2">
+    <section id="products">
         <p class="text-body">FEATURED PRODUCTS</p>
         <h1>Browse featured</h1>
 
@@ -193,7 +196,7 @@
                 <div class="swiper-slide">
                     <div class="swiper-image">
                         <span class="corner-icon-top-left label label--bestseller">Bestseller</span>
-                        <div class="heart-icon-wrapper corner-icon top-right">
+                        <div class="heart-icon-wrapper heart-icon top-right">
                             <svg class="heart-icon-default" xmlns="http://www.w3.org/2000/svg" width="20" height="18"
                                 viewBox="0 0 20 18" fill="none">
                                 <path
@@ -220,7 +223,7 @@
                 <div class="swiper-slide">
                     <div class="swiper-image">
                         <span class="corner-icon-top-left label label--limited">Limited edition</span>
-                        <div class="heart-icon-wrapper corner-icon top-right">
+                        <div class="heart-icon-wrapper heart-icon top-right">
                             <svg class="heart-icon-default" xmlns="http://www.w3.org/2000/svg" width="20" height="18"
                                 viewBox="0 0 20 18" fill="none">
                                 <path
@@ -246,7 +249,7 @@
 
                 <div class="swiper-slide">
                     <div class="swiper-image">
-                        <div class="heart-icon-wrapper corner-icon top-right">
+                        <div class="heart-icon-wrapper heart-icon top-right">
                             <svg class="heart-icon-default" xmlns="http://www.w3.org/2000/svg" width="20" height="18"
                                 viewBox="0 0 20 18" fill="none">
                                 <path
@@ -273,7 +276,7 @@
                 <div class="swiper-slide">
                     <div class="swiper-image">
                         <span class="corner-icon-top-left label label--bestseller">Bestseller</span>
-                        <div class="heart-icon-wrapper corner-icon top-right">
+                        <div class="heart-icon-wrapper heart-icon top-right">
                             <svg class="heart-icon-default" xmlns="http://www.w3.org/2000/svg" width="20" height="18"
                                 viewBox="0 0 20 18" fill="none">
                                 <path
@@ -299,7 +302,7 @@
 
                 <div class="swiper-slide">
                     <div class="swiper-image">
-                        <div class="heart-icon-wrapper corner-icon top-right">
+                        <div class="heart-icon-wrapper heart-icon top-right">
                             <svg class="heart-icon-default" xmlns="http://www.w3.org/2000/svg" width="20" height="18"
                                 viewBox="0 0 20 18" fill="none">
                                 <path
@@ -325,8 +328,6 @@
 
             </div>
 
-
-
             <div class="swiper-next no-tap">
                 <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
                     <g clip-path="url(#clip0_2008_836)">
@@ -347,11 +348,13 @@
                 </svg>
             </div>
 
-            <div class="swiper-pagination"></div>
+            <div class="custom-scrollbar">
+                <div class="custom-scrollbar-fill" id="scrollFill"></div>
+            </div>
         </div>
 
     </section>
-    <section id="section3">
+    <section id="listing">
         <div class="dropdown-group">
             <label class="text-body drop-info item" for="items-per-page">Number of products per page</label>
             <div class="drop-selector">
@@ -384,6 +387,7 @@
             <img id="modal-image" src="" alt="Produkt" />
         </div>
     </div>
+    </main>
 
 </body>
 
