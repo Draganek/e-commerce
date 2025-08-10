@@ -232,7 +232,7 @@ function renderProducts(products, append = true) {
 `;
 
             const testImg = new Image();
-            testImg.src = '/src/img/banner.jpg';
+            testImg.src = 'https://draganek.github.io/e-commerce/src/img/banner.jpg';
 
             testImg.onload = function () {
                 banner.style.backgroundImage = "url('https://draganek.github.io/e-commerce/src/img/banner.jpg')";
