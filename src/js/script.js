@@ -231,11 +231,11 @@ function renderProducts(products, append = true) {
             testImg.src = '/src/img/banner.jpg';
 
             testImg.onload = function () {
-                banner.style.backgroundImage = "url('/src/img/banner.jpg')";
+                banner.style.backgroundImage = "url('https://draganek.github.io/e-commerce/src/img/banner.jpg')";
             };
 
             testImg.onerror = function () {
-                banner.style.backgroundImage = "url('https://draganek.github.io/e-commerce/src/img/banner.jpg')";
+                banner.style.backgroundImage = "url('/src/img/banner.jpg')";
             };
 
             banner.style.backgroundSize = "cover";
